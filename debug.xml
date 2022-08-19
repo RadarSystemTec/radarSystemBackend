@@ -6,7 +6,13 @@
 
     <entry key='config.default'>./setup/default.xml</entry>
 
-    <entry key='web.path'>./traccar-web/web</entry>
+    <entry key='notificator.types'>web,mail,whatsapp</entry>
+    <entry key='notificator.whatsapp.url'>http://wsay.jsmx.com.br:4242/api/</entry>
+    <entry key='notificator.whatsapp.key'>G-fuXu60iDqNc6VWsYN4hvC74MiJ-HDXl6I3gGvoasg=</entry>
+
+    <entry key='web.port'>8083</entry>
+
+    <entry key='web.path'>../painelRadarSystem/web</entry>
     <entry key='web.debug'>true</entry>
     <entry key='web.console'>true</entry>
 
@@ -17,16 +23,45 @@
 
     <entry key='mail.debug'>true</entry>
 
-    <entry key='database.driver'>org.h2.Driver</entry>
-    <entry key='database.url'>jdbc:h2:./target/database</entry>
-    <entry key='database.user'>sa</entry>
-    <entry key='database.password'></entry>
+    <entry key='database.driver'>org.postgresql.Driver</entry>
+    <entry key='database.url'>jdbc:postgresql://127.0.0.1:5432/radarsystem</entry>
+    <entry key='database.user'>radarsystem</entry>
+    <entry key='database.password'>Radar@@2021</entry>
 
     <entry key='atrack.custom'>true</entry>
-    <entry key='intellitrac.port'>6037</entry>
+    <!--entry key='intellitrac.port'>6037</entry-->
 
-    <!--<entry key='broadcast.interface'>en0</entry>
-    <entry key='broadcast.address'>230.3.3.3</entry>
-    <entry key='broadcast.port'>7001</entry>-->
+    <entry key='geocoder.enable'>true</entry>
+    <entry key='geocoder.reuseDistance'>100</entry>
+    <entry key='geocoder.ignorePositions'>false</entry>
+    <entry key='geocoder.type'>nominatim</entry>
+    <entry key='geocoder.url'>https://geolocation.radarsystem.com.br/reverse</entry>
+
+    <entry key='mail.smtp.host'>mail.radarsystem.com.br</entry>
+    <entry key='mail.smtp.port'>587</entry>
+    <entry key='mail.smtp.from'>notification@radarsystem.com.br</entry>
+    <entry key='mail.smtp.auth'>true</entry>
+    <entry key='mail.smtp.username'>notification@radarsystem.com.br</entry>
+    <entry key='mail.smtp.password'>@@Jacare##</entry>
+
+    <entry key="database.emailCheck">
+        select * from tc_users where email = :email
+    </entry>
+
+    <entry key="database.resetTokenCheck">
+        select * from tc_users where resetpasswordtoken = :token
+    </entry>
+
+    <entry key="server.resetPasswordTokenExpire">60</entry>
+
+    <entry key='filter.enable'>true</entry>
+    <!--    <entry key='filter.distance'>100</entry>-->
+    <entry key='filter.skipLimit'>60</entry>
+    <entry key='filter.minPeriod'>60</entry>
+    <entry key='filter.zero'>true</entry>
+    <entry key='filter.invalid'>true</entry>
+    <entry key='filter.duplicate'>true</entry>
+    <entry key='filter.skipAttributes.enable'>true</entry>
+    <entry key='filter.skipAttributes'>alarm,ignition,result,status</entry>
 
 </properties>

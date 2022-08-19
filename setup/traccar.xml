@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
 <!DOCTYPE properties SYSTEM 'http://java.sun.com/dtd/properties.dtd'>
 
 <properties>
 
     <entry key='config.default'>./conf/default.xml</entry>
+    <entry key="web.url">https://painel.radarsystem.com.br</entry>
 
     <!--
 
@@ -18,9 +18,69 @@
 
     -->
 
-    <entry key='database.driver'>org.h2.Driver</entry>
-    <entry key='database.url'>jdbc:h2:./data/database</entry>
-    <entry key='database.user'>sa</entry>
-    <entry key='database.password'></entry>
+    <!--    <entry key='database.driver'>com.mysql.cj.jdbc.Driver</entry>-->
+    <!--    &lt;!&ndash;entry key='database.driver'>com.mysql.jdbc.Driver</entry&ndash;&gt;-->
+    <!--    <entry key='database.url'>jdbc:mysql://localhost:3306/traccar?serverTimezone=UTC&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''</entry>-->
+    <!--    <entry key='database.user'>sa</entry>-->
+    <!--    <entry key='database.password'></entry>-->
 
+    <entry key='database.driver'>org.postgresql.Driver</entry>
+    <entry key='database.url'>jdbc:postgresql://127.0.0.1:5432/radarsystem</entry>
+    <entry key='database.user'>radarsystem_admin</entry>
+    <entry key='database.password'>@Jacare01</entry>
+
+    <entry key='mail.smtp.host'>mail.radarsystem.com.br</entry>
+    <entry key='mail.smtp.port'>587</entry>
+    <entry key='mail.smtp.from'>notification@radarsystem.com.br</entry>
+    <entry key='mail.smtp.auth'>true</entry>
+    <entry key='mail.smtp.username'>notification@radarsystem.com.br</entry>
+    <entry key='mail.smtp.password'>@@Jacare##</entry>
+
+    <entry key="database.emailCheck">
+        select * from tc_users where email = :email
+    </entry>
+    <entry key="database.resetTokenCheck">
+        select * from tc_users where resetpasswordtoken = :token
+    </entry>
+
+    <entry key="server.resetPasswordTokenExpire">60</entry>
+    <!--entry key='geocoder.enable'>true</entry-->
+    <!--entry key='geocoder.type'>google</entry>
+    <entry key="geocoder.key">AIzaSyAMRfkUp8b-aNWM5LZtpjG_azBqiKrEghU</entry-->
+    <entry key="status.timeout">5000</entry>
+
+
+    <!--SMS SETTINGS -->
+    <entry key='notificator.sms.manager.class'>org.traccar.sms.HttpSmsClient</entry>
+    <!--entry key='sms.http.url'>'https://api.twilio.com/2010-04-01/Accounts/AC5fe97d0802d1a1aa172821bb51952244/Messages.json' -X POST</entry>
+    <entry key='sms.http.user'> AC5fe97d0802d1a1aa172821bb51952244 </entry>
+    <entry key='sms.http.password'> bbbf4c8fc85a95fbb6c648c9b288f3e5 </entry>
+    <entry key='sms.http.template'>From=whatsapp %2B12053031827  &amp;To=whatsapp%3A{phone}&amp;Body={message}</entry-->
+
+    <entry key='notificator.types'>web,mail,sms,telegram,firebase,whatsapp</entry>
+    <entry key='notificator.sms.manager.class'>org.traccar.sms.HttpSmsClient</entry>
+    <entry key='sms.http.url'>https://api.twilio.com/2010-04-01/Accounts/AC5fe97d0802d1a1aa172821bb51952244/Messages.json</entry>
+    <entry key='sms.http.user'>AC5fe97d0802d1a1aa172821bb51952244</entry>
+    <entry key='sms.http.password'>bbbf4c8fc85a95fbb6c648c9b288f3e5</entry>
+    <entry key='sms.http.template'> From=%2B12053031827&amp;To={phone}&amp;Body={message}</entry>>
+
+    <!--WHATSAPP WSAY SETTINGS-->
+    <entry key='notificator.whatsapp.url'>http://wsay.jsmx.com.br:4242/api/</entry>
+    <entry key='notificator.whatsapp.key'>G-fuXu60iDqNc6VWsYN4hvC74MiJ-HDXl6I3gGvoasg=</entry>
+
+    <!--TELEGRAM SETTINGS -->
+    <!--entry key='notificator.telegram.key'>1292305254:AAHAb4rwLw2TpNp0IlT0Vk3_dgBQ6YD7IJQ</entry>
+    <entry key='notificator.telegram.chatId'>1133309020</entry-->
+
+    <!--FIREBASE SETTINGS-->
+    <entry key='notificator.firebase.key'>AAAAJJGjKFw:APA91bEgJF_W0KuFcgsA6r7bvpue3GGzGZM6bgzms81TzQpQk8Y-ZuY1QntA6w1413w24GFuszxWb48c6IfxemyWVxoiw8Uj5vSHibyVUxo6xH7s-Tp1bezcfG_jFkhxn2YfUI6pNp4b</entry>
+
+    <entry key='filter.enable'>true</entry>
+    <entry key='filter.distance'>100</entry>
+    <entry key='filter.skipLimit'>60</entry>
+    <entry key='filter.zero'>true</entry>
+    <entry key='filter.invalid'>true</entry>
+    <entry key='filter.duplicate'>true</entry>
+    <entry key='filter.skipAttributes.enable'>true</entry>
+    <entry key='filter.skipAttributes'>alarm,ignition,result,status</entry>
 </properties>

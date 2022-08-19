@@ -44,6 +44,12 @@
 
     <entry key='gps103.port'>5001</entry>
     <entry key='tk103.port'>5002</entry>
+    <entry key='h02.port'>5013</entry>
+    <entry key='osmand.port'>5055</entry>
+    <entry key='gt06.port'>5023</entry>
+
+    <!--entry key='gps103.port'>5001</entry>
+    <entry key='tk103.port'>5002</entry>
     <entry key='gl100.port'>5003</entry>
     <entry key='gl200.port'>5004</entry>
     <entry key='t55.port'>5005</entry>
@@ -283,6 +289,6 @@
     <entry key='armoli.port'>5238</entry>
     <entry key='teratrack.port'>5239</entry>
     <entry key='envotech.port'>5240</entry>
-    <entry key='bstpl.port'>5241</entry>
+    <entry key='bstpl.port'>5241</entry-->
 
 </properties>
